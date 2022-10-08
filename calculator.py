@@ -1,7 +1,7 @@
 import re
 
-def calculate(input):
-    validExpression = re.findall("\d+|[\+\-\*]", number)
+def calculate(exp):
+    validExpression = re.findall("\d+|[\+\-\*]", exp)
     # validOperator = re.findall("[\+\-\*]", number)
     # print(f"The numbers: {validExpression}\nThe operators: {validOperator}\nThird integer is: {int(validExpression[2])+int(validExpression[4])}")
     
