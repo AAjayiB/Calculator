@@ -3,7 +3,7 @@ import re
 def calculate(exp):
     answer = ""
     if exp:
-        if exp.search("\D+|[^\+\-\*]"):
+        if re.search("\D+|[^\+\-\*]", exp):
             answer = "Not a valid input"
         else:
             validExpression = re.findall("\d+|[\+\-\*]", exp)
