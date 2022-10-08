@@ -13,6 +13,13 @@ def calculate(exp):
             validExpression[opIndex-1] = computedValue
             validExpression.pop(opIndex+1)
             validExpression.pop(opIndex)
+
+        while (validExpression.count("-") > 0):
+            opIndex = validExpression.index("-")
+            computedValue = int(validExpression[opIndex-1])-int(validExpression[opIndex+1])
+            validExpression[opIndex-1] = computedValue
+            validExpression.pop(opIndex+1)
+            validExpression.pop(opIndex)
         
         while (validExpression.count("+") > 0):
             opIndex = validExpression.index("+")
@@ -21,12 +28,7 @@ def calculate(exp):
             validExpression.pop(opIndex+1)
             validExpression.pop(opIndex)
             
-        while (validExpression.count("-") > 0):
-            opIndex = validExpression.index("-")
-            computedValue = int(validExpression[opIndex-1])-int(validExpression[opIndex+1])
-            validExpression[opIndex-1] = computedValue
-            validExpression.pop(opIndex+1)
-            validExpression.pop(opIndex)
+        
         return str(validExpression[0])
     return("No input was entered.")
 
