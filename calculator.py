@@ -3,34 +3,40 @@ import re
 def calculate(exp):
     answer = ""
     if exp:
-        validExpression = re.findall("\d+|[\+\-\*]", exp)
-        # validOperator = re.findall("[\+\-\*]", number)
-        # print(f"The numbers: {validExpression}\nThe operators: {validOperator}\nThird integer is: {int(validExpression[2])+int(validExpression[4])}")
-        
-        while (validExpression.count("*") > 0):
-            opIndex = validExpression.index("*")
-            computedValue = int(validExpression[opIndex-1])*int(validExpression[opIndex+1])
-            validExpression[opIndex-1] = computedValue
-            validExpression.pop(opIndex+1)
-            validExpression.pop(opIndex)
-
-        while (validExpression.count("-") > 0):
-            opIndex = validExpression.index("-")
-            computedValue = int(validExpression[opIndex-1])-int(validExpression[opIndex+1])
-            validExpression[opIndex-1] = computedValue
-            validExpression.pop(opIndex+1)
-            validExpression.pop(opIndex)
-        
-        while (validExpression.count("+") > 0):
-            opIndex = validExpression.index("+")
-            computedValue = int(validExpression[opIndex-1])+int(validExpression[opIndex+1])
-            validExpression[opIndex-1] = computedValue
-            validExpression.pop(opIndex+1)
-            validExpression.pop(opIndex)
+        if exp.search("\D+|[^\+\-\*]"):
+            answer = "Not a valid input"
+        else:
+            validExpression = re.findall("\d+|[\+\-\*]", exp)
+            # validOperator = re.findall("[\+\-\*]", number)
+            # print(f"The numbers: {validExpression}\nThe operators: {validOperator}\nThird integer is: {int(validExpression[2])+int(validExpression[4])}")
             
-        
-        return str(validExpression[0])
-    return("No input was entered.")
+            while (validExpression.count("*") > 0):
+                opIndex = validExpression.index("*")
+                computedValue = int(validExpression[opIndex-1])*int(validExpression[opIndex+1])
+                validExpression[opIndex-1] = computedValue
+                validExpression.pop(opIndex+1)
+                validExpression.pop(opIndex)
+
+            while (validExpression.count("-") > 0):
+                opIndex = validExpression.index("-")
+                computedValue = int(validExpression[opIndex-1])-int(validExpression[opIndex+1])
+                validExpression[opIndex-1] = computedValue
+                validExpression.pop(opIndex+1)
+                validExpression.pop(opIndex)
+            
+            while (validExpression.count("+") > 0):
+                opIndex = validExpression.index("+")
+                computedValue = int(validExpression[opIndex-1])+int(validExpression[opIndex+1])
+                validExpression[opIndex-1] = computedValue
+                validExpression.pop(opIndex+1)
+                validExpression.pop(opIndex)
+                
+            
+            return str(validExpression[0])
+    else:
+        answer = "No input was entered."
+
+    return answer
 
 
     
