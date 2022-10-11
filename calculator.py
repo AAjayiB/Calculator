@@ -19,11 +19,11 @@ def calculate(exp):
 
                     while (validExpression.count("*") > 0):
                         opIndex = validExpression.index("*")
-                        if validExpression[opIndex-1]=="+" | validExpression[opIndex-1]=="-": 
+                        if validExpression[opIndex-1]=="+" or validExpression[opIndex-1]=="-": 
 	                        return CONSECUTIVE_OPERATORS
-                        if (validExpression[opIndex+1]=="+" | validExpression[opIndex+1]=="*") & (validExpression[opIndex+2]=="+" | validExpression[opIndex+2]=="-" | validExpression[opIndex+2]=="*"): 
+                        if (validExpression[opIndex+1]=="+" or validExpression[opIndex+1]=="*") and (validExpression[opIndex+2]=="+" or validExpression[opIndex+2]=="-" or validExpression[opIndex+2]=="*"): 
 	                        return CONSECUTIVE_OPERATORS
-                        if validExpression[opIndex+1] =="-" & (validExpression[opIndex+2]=="+" | validExpression[opIndex+2]=="-" | validExpression[opIndex+2]=="*"): 
+                        if validExpression[opIndex+1] =="-" and (validExpression[opIndex+2]=="+" or validExpression[opIndex+2]=="-" or validExpression[opIndex+2]=="*"): 
 	                        return CONSECUTIVE_OPERATORS
                         if validExpression[opIndex+1] =="-":
                             validExpression[opIndex+1:opIndex+3] = ["".join(validExpression[opIndex+1:opIndex+3])]
