@@ -2,12 +2,7 @@ from calculator import calculate
 
 def testCalculate():
     # Test for no string input
-    assert calculate("")=="No input was entered."
-
-    # Tests for string of 0s
-    assert calculate("0+0+0+0")=="0"
-    assert calculate("0-0-0-0")=="0"
-    assert calculate("0*0*0*0")=="0" 
+    assert calculate("")=="No input was entered." 
 
     # Tests for basic computations
     assert calculate("1+2+3+4")=="10"
