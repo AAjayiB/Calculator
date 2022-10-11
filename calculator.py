@@ -46,5 +46,5 @@ def calculate(exp):
         else:
             answer="Not a valid input"
     else:
-        answer="No input was entered"
+        answer="No input was entered."
     return answer
