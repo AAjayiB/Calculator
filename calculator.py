@@ -34,7 +34,8 @@ def calculate(exp):
 
                     while (validExpression.count("-") > 0):
                         opIndex = validExpression.index("-")
-                        
+                        if validExpression[opIndex+1]=="-":
+                            return CONSECUTIVE_OPERATORS
                         if validExpression[opIndex-1]=="+":
                             validExpression.pop(opIndex-1)
                         else:
