@@ -19,6 +19,12 @@ def calculate(exp):
 
                     while (validExpression.count("*") > 0):
                         opIndex = validExpression.index("*")
+                        if validExpression[opIndex-1]=="+" | validExpression[opIndex-1]=="-" | validExpression[opIndex-1]=="*": 
+	                        return CONSECUTIVE_OPERATORS
+                        if validExpression[opIndex+1]=="+" | validExpression[opIndex+1]=="*": 
+	                        return CONSECUTIVE_OPERATORS
+                        if validExpression[opIndex+2]=="+" | validExpression[opIndex+2]=="-" | validExpression[opIndex+2]=="*": 
+	                        return CONSECUTIVE_OPERATORS
                         if validExpression[opIndex+1] =="-":
                             validExpression[opIndex+1:opIndex+3] = ["".join(validExpression[opIndex+1:opIndex+3])]
                         computedValue = int(validExpression[opIndex-1])*int(validExpression[opIndex+1])
@@ -28,6 +34,8 @@ def calculate(exp):
 
                     while (validExpression.count("-") > 0):
                         opIndex = validExpression.index("-")
+                        if validExpression[opIndex+1] =="-" | validExpression[opIndex+1]=="+":
+                            return CONSECUTIVE_OPERATORS
                         if validExpression[opIndex-1]=="+":
                             validExpression.pop(opIndex-1)
                         else:
