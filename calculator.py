@@ -3,13 +3,13 @@ import re
 def calculate(exp):
     if exp:
         # checks for any non operators or digits
-        if not re.search("[^\d\+\-\*]",exp):
+        if not re.search(r"[^\d\+\-\*]",exp):
             # checks for expressions beginning only with a single minus or not
-            if re.search("^\-?\d",exp):
+            if re.search(r"^\-?\d",exp):
                 # checks for expressions ending with only digits 
-                if re.search("\d$", exp):
+                if re.search(r"\d$", exp):
                     ############# ACTUAL OPERATIONS #############
-                    validExpression = re.findall("\d+|[\+\-\*]", exp)
+                    validExpression = re.findall(r"\d+|[\+\-\*]", exp)
                     ############# Here at the moment
                     if validExpression[0] =="-":
                         validExpression[0:2]=["".join(validExpression[0:2])]
