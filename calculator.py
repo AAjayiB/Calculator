@@ -1,6 +1,8 @@
 import re
 
+
 def calculate(exp):
+    answer=""
     if exp:
         # checks for any non operators or digits
         if not re.search(r"[^\d\+\-\*]",exp):
@@ -35,13 +37,14 @@ def calculate(exp):
                         validExpression.pop(opIndex+1)
                         validExpression.pop(opIndex)
 
-                    print(str(validExpression[0]))
+                    answer=str(validExpression[0])
 
                 else:
-                    print("Expression cannot end with an operation")
+                    answer="Expression cannot end with an operation"
             else:
-                print("Expression cannot begin with an operation")
+                answer="Expression cannot begin with an operation"
         else:
-            print("Not a valid input")
+            answer="Not a valid input"
     else:
-        print("No input was entered")
+        answer="No input was entered"
+    return answer
