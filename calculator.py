@@ -21,6 +21,8 @@ def calculate(exp):
                         opIndex = validExpression.index("*")
                         if validExpression[opIndex-1]=="+" or validExpression[opIndex-1]=="-": 
 	                        return CONSECUTIVE_OPERATORS
+                        if (validExpression[opIndex+1]=="+" or validExpression[opIndex+1]=="*"):
+                            return CONSECUTIVE_OPERATORS
                         if (validExpression[opIndex+1]=="+" or validExpression[opIndex+1]=="*") and (validExpression[opIndex+2]=="+" or validExpression[opIndex+2]=="-" or validExpression[opIndex+2]=="*"): 
 	                        return CONSECUTIVE_OPERATORS
                         if validExpression[opIndex+1] =="-" and (validExpression[opIndex+2]=="+" or validExpression[opIndex+2]=="-" or validExpression[opIndex+2]=="*"): 
