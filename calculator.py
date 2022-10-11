@@ -1,3 +1,5 @@
+import re
+
 def calculate(exp):
     if exp:
         # checks for any non operators or digits
